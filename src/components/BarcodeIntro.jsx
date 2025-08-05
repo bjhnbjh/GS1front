@@ -3,7 +3,7 @@ import React, {
     useEffect,      // 📌 화면이 처음 렌더링되거나 특정 값이 바뀔 때 실행되는 side effect 정의 (React에서 제공)
     useRef,         // 📌 HTML 요소를 직접 참조하기 위해 사용 (DOM 접근) (React에서 제공)
     useState,       // 📌 컴포넌트 내부의 상태 값을 정의하고 갱신할 수 있는 hook (React에서 제공)
-    useCallback     // 📌 함수를 메모이제이션해서 렌더링 시 재생성 방지 (React에서 제공)
+    useCallback     // 📌 함수를 메모이제이션해서 ���더링 시 재생성 방지 (React에서 제공)
 } from 'react';
 
 // ✅ video.js 라이브러리 import (외부 라이브러리)
@@ -313,12 +313,16 @@ const BarcodeIntro = () => {
     // ✅ 화면 렌더링
     return (
         <div className={`App ${showPopup ? 'sidebar-is-open' : ''}`}>
-            {/* 시작 버튼 */}
+            {/* 시�� 버튼 */}
             {!started && (
                 <button className="start-btn" onClick={() => {
                     // enterFullScreen();
                     setStarted(true);
                     logoRef.current?.classList.add('show');
+                    // 스페이스바 입력 없이 바로 스캔 진행
+                    setTimeout(() => {
+                        handleScan();
+                    }, 1500); // 로고가 나타난 후 1.5초 뒤 자동 진행
                 }}>
                     START
                 </button>
@@ -336,18 +340,23 @@ const BarcodeIntro = () => {
             {/* <div className="scan-line" ref={lineRef}></div> */}
 
             <div>
-                {/* 비디오 플레이어 영역 */}
+                {/* 비디오 제목 */}
+                {showVideo && (
+                    <div className="video-title">
+                        GS1 Media 동영상 객체 탐지
+                    </div>
+                )}
+
+                {/* 비��오 플레이어 영역 */}
                 {showVideo && (
                     <div className={`video-container ${showPopup ? 'shrink' : ''} show`} style={{
                         display: 'flex',                        // ✅ 기존과 동일
                         flexDirection: 'row',                   // ✅ 가로 정렬
-                        justifyContent: 'flex-start',           // ✅ 왼쪽부터 정렬
-                        alignItems: 'flex-start',
+                        justifyContent: 'center',               // 수평 중앙
+                        alignItems: 'center',                   // ✅ 수직 중앙
                         gap: '1rem',                            // ✅ 비디오와 패널 사이 간격
                         width: '100%',
                         height: '100%',
-                        justifyContent: 'center',    // 수평 중앙
-                        alignItems: 'center',        // ✅ 수직 중앙
                     }}>
                         <div id="video-container" style={{
                             position: 'relative',
@@ -358,6 +367,7 @@ const BarcodeIntro = () => {
                             // maxWidth: showPopup ? '80%' : '100%',         // ✅ 팝업 있을 때만 줄어듦
                             maxWidth: '80%',         // ✅ 팝업 있을 때만 줄어듦
                         }}>
+
                             <video id="my-video" ref={videoRef} className="video-js vjs-default-skin video show" playsInline>
                                 <source src={`${process.env.PUBLIC_URL}/testVid_1.25.mp4`} type="video/mp4" />
                                 <track kind="metadata" src={`${process.env.PUBLIC_URL}/gs1media_dl_metadata.vtt`} srcLang="en" label="Polygon" default />
@@ -391,37 +401,28 @@ const BarcodeIntro = () => {
                             }}></button>
                         )}
                         {/* 오른쪽 팝업 영역 */}
-                        <div style={{ height: '100%', width: !showPopup ? '0%' : '19%', borderRadius: '10px', overflow: 'hidden', transition: 'width 0.3s ease' }}>
+                        <div style={{ height: '100%', width: !showPopup ? '0%' : '19%', borderRadius: '20px 0 0 20px', overflow: 'hidden', transition: 'width 0.3s ease' }}>
                             {showPopup && (
                                 <div className="popup-panel show" style={{
                                     flex: '0 0 40%',                     // ✅ 오른쪽 고정 폭
                                     height: '100%',
                                     overflowY: 'auto',
-                                    backgroundColor: 'white',
+                                    backgroundColor: '#f9fafe',
                                     borderLeft: '1px solid #ccc',
                                     padding: '1rem',
-                                    backgroundColor: '#f9fafe',
                                     boxShadow: '-2px 0 8px rgba(0,0,0,0.08)',
                                 }}>
                                     <button className="popup-close" onClick={() => {
                                         setShowPopup(false);
                                         playerRef.current?.play();
-                                    }}
-                                        style={{
-                                            background: 'none',
-                                            border: 'none',
-                                            fontSize: '1.5rem',
-                                            float: 'right',
-                                            cursor: 'pointer',
-                                            color: '#777',
-                                            marginBottom: '1rem',
-                                        }}>✕</button>
+                                    }}>✕</button>
                                     <h3 style={{ margin: '15px 5px' }}>📦 &nbsp;아래 항목을 선택하세요</h3>
                                     <ul>
                                         {itemList.map((item, idx) => (
                                             <li key={idx} style={{ marginBottom: '1rem' }}>
                                                 {/* 상단 버튼: name(제품명) + bye(카테고리) */}
                                                 <button
+                                                    className="panel-item-button"
                                                     onClick={() => setSelectedIndex(selectedIndex === idx ? null : idx)}
                                                     style={{
                                                         display: 'flex',
@@ -429,9 +430,7 @@ const BarcodeIntro = () => {
                                                         alignItems: 'center',
                                                         width: '100%',
                                                         padding: '0.5rem 1rem',
-                                                        border: '1px solid #ccc',
                                                         cursor: 'pointer',
-                                                        background: 'white',
                                                         fontSize: '1rem',
                                                         textAlign: 'left',
                                                         flexDirection: 'column',
@@ -471,6 +470,7 @@ const BarcodeIntro = () => {
                                                             link.linkType !== 'gs1:relatedImage' && (
                                                                 <button
                                                                     key={i}
+                                                                    className="service-link-button"
                                                                     onClick={() => window.open(link.targetURL, '_blank', 'noopener,noreferrer')}
                                                                     style={{
                                                                         marginBottom: '0.5rem',
