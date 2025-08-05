@@ -20,10 +20,10 @@ body {
 /* ===== [2] 비디오 컨테이너 (화면 꽉 채움) ===== */
 .video-container {
   position: fixed;              /* 스크롤과 무관하게 항상 고정 */
-  top: 0;
+  top: 120px;                   /* 제목 공간 확보 */
   left: 0;
   width: 100vw;                 /* 뷰포트 전체 너비 */
-  height: 100vh;                /* 뷰포트 전체 높이 */
+  height: calc(100vh - 120px);  /* 제목 높이 제외한 전체 높이 */
   background: linear-gradient(135deg, #5fbeeb 0%, #3da8d4 100%); /* KAIST 스타일 파란 그라데이션 */
   display: flex;               /* 내부 요소 가운데 정렬 위해 Flex 사용 */
   justify-content: center;     /* 가로 가운데 */
@@ -92,7 +92,7 @@ body {
 /* ===== [4] video.js 컨트롤바 항상 보이기 ===== */
 .vjs-control-bar {
   z-index: 1001 !important;        /* 다른 요소보다 위 */
-  visibility: visible !important;  /* 항상 보이도록 설정 */
+  visibility: visible !important;  /* 항상 보���도록 설정 */
   opacity: 1 !important;           /* 완전히 불투명 */
   position: absolute !important;   /* 하단에 ���정 */
   bottom: 0 !important;            /* 하단 기준 위치 */
@@ -152,7 +152,7 @@ body {
   transition: right 0.4s ease;  /* 오른쪽 위치 부드럽게 이동 */
 }
 
-/* 사이드바 열렸을 때, 재진입 버튼 왼쪽으로 이동 */
+/* 사이드바 열렸을 때, 재진입 버튼 왼쪽으�� 이동 */
 .App.sidebar-is-open .start-btn.reenter-fullscreen {
   right: calc(300px + 4rem); /* 사이드바 너비 + 여백 */
 }
@@ -190,7 +190,7 @@ body {
   opacity: 0;              /* 서서히 사라짐 */
 }
 
-/* ===== [7] 빨간 스캔 라인 ��니메이션 ===== */
+/* ===== [7] 빨간 스캔 라인 애니메이션 ===== */
 .scan-line {
   display: none; /* 기본 숨김 */
 }
@@ -280,7 +280,7 @@ body {
   backdrop-filter: blur(15px);            /* 유리 효과 */
   z-index: 11;                            /* 영상보다 위, 버튼보다는 아래 */
 
-  box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15); /* 왼쪽으로 ���림자 효과 */
+  box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15); /* 왼쪽으로 그림자 효과 */
   transform: translateX(100%);            /* 처음엔 화면 밖에 숨김 */
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* 부드럽게 나타나��� */
   border-left: 1px solid rgba(255, 255, 255, 0.3); /* 왼쪽 테두리 */
