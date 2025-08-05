@@ -14,7 +14,7 @@ body {
   position: relative;         /* 자식 요소들의 position 기준이 됨 */
   width: 100%;                /* 가로 전체 사용 */
   height: 100%;               /* 세로 전체 사용 */
-  background: linear-gradient(135deg, #5fbeeb 0%, #3da8d4 100%); /* KAIST 스타일 파란 그라데이��� */
+  background: linear-gradient(135deg, #5fbeeb 0%, #3da8d4 100%); /* KAIST 스타일 파란 그라데이션 */
 }
 
 /* ===== [2] 비디오 컨테이너 (화면 꽉 채움) ===== */
@@ -190,7 +190,7 @@ body {
   opacity: 0;              /* 서서히 사라짐 */
 }
 
-/* ===== [7] 빨간 스캔 라인 애��메이션 ===== */
+/* ===== [7] 빨간 스캔 라인 애니메이션 ===== */
 .scan-line {
   display: none; /* 기본 숨김 */
 }
@@ -306,24 +306,56 @@ body {
 
 /* ===== [10] 패널 항목 호버 효과 ===== */
 .panel-item-button {
-  transition: all 0.2s ease !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  cursor: pointer !important;
+  position: relative !important;
+  overflow: hidden !important;
 }
 
 .panel-item-button:hover {
-  background: #f0f8ff !important;
-  border-color: #87ceeb !important;
-  box-shadow: 0 4px 15px rgba(135, 206, 235, 0.3) !important;
-  transform: translateY(-2px);
+  background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%) !important;
+  border-color: #5fbeeb !important;
+  box-shadow: 0 8px 25px rgba(95, 190, 235, 0.25) !important;
+  transform: translateY(-3px) scale(1.02);
+}
+
+.panel-item-button:active {
+  transform: translateY(-1px) scale(1.01);
+  transition: all 0.1s ease !important;
 }
 
 /* GS1 디지털링크 서비스 리스트 항목 호버 효과 */
 .service-link-button {
-  transition: all 0.2s ease !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  cursor: pointer !important;
+  position: relative !important;
+  overflow: hidden !important;
 }
 
 .service-link-button:hover {
-  background: #f0f8ff !important;
-  border-color: #4a90e2 !important;
-  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3) !important;
-  transform: translateX(5px);
+  background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%) !important;
+  border-color: #3da8d4 !important;
+  box-shadow: 0 6px 20px rgba(61, 168, 212, 0.3) !important;
+  transform: translateX(8px) scale(1.02);
+}
+
+.service-link-button:active {
+  transform: translateX(4px) scale(1.01);
+  transition: all 0.1s ease !important;
+}
+
+.service-link-button:hover::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shimmer 0.6s ease-in-out;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
 }
