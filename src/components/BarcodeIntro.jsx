@@ -313,7 +313,7 @@ const BarcodeIntro = () => {
     // ✅ 화면 렌더링
     return (
         <div className={`App ${showPopup ? 'sidebar-is-open' : ''}`}>
-            {/* 시작 버튼 */}
+            {/* 시�� 버튼 */}
             {!started && (
                 <button className="start-btn" onClick={() => {
                     // enterFullScreen();
@@ -347,7 +347,7 @@ const BarcodeIntro = () => {
                     </div>
                 )}
 
-                {/* 비디오 플레이어 영역 */}
+                {/* 비��오 플레이어 영역 */}
                 {showVideo && (
                     <div className={`video-container ${showPopup ? 'shrink' : ''} show`} style={{
                         display: 'flex',                        // ✅ 기존과 동일
@@ -401,7 +401,7 @@ const BarcodeIntro = () => {
                             }}></button>
                         )}
                         {/* 오른쪽 팝업 영역 */}
-                        <div style={{ height: '100%', width: !showPopup ? '0%' : '19%', borderRadius: '10px', overflow: 'hidden', transition: 'width 0.3s ease' }}>
+                        <div style={{ height: '100%', width: !showPopup ? '0%' : '19%', borderRadius: '20px 0 0 20px', overflow: 'hidden', transition: 'width 0.3s ease' }}>
                             {showPopup && (
                                 <div className="popup-panel show" style={{
                                     flex: '0 0 40%',                     // ✅ 오른쪽 고정 폭
