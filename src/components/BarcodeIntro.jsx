@@ -1,6 +1,6 @@
 // ✅ React에서 제공하는 핵심 기능들을 불러옵니다.
 import React, {
-    useEffect,      // 📌 화면이 처음 렌더링되거나 특정 값이 바뀔 때 실행되는 side effect 정의 (React에서 제공)
+    useEffect,      // 📌 화면이 처음 렌더링되거나 특정 값이 바�� 때 실행되는 side effect 정의 (React에서 제공)
     useRef,         // 📌 HTML 요소를 직접 참조하기 위해 사용 (DOM 접근) (React에서 제공)
     useState,       // 📌 컴포넌트 내부의 상태 값을 정의하고 갱신할 수 있는 hook (React에서 제공)
     useCallback     // 📌 함수를 메모이제이션해서 렌더링 시 재생성 방지 (React에서 제공)
@@ -11,7 +11,7 @@ import React, {
 import videojs from 'video.js';
 
 // ✅ video.js UI에 필요한 CSS 파일 불러오기
-import 'video.js/dist/video-js.css'; // 재��� 버튼, 타임바 등 video.js UI 구성에 필요
+import 'video.js/dist/video-js.css'; // 재생 버튼, 타임바 등 video.js UI 구성에 필요
 
 // ✅ 이 컴포넌트 전용 스타일시트 (애니메이션, 배치 등)
 import './BarcodeIntro.css';
@@ -23,7 +23,7 @@ const BarcodeIntro = () => {
     // ✅ HTML 요소 참조용 useRef 훅 선언
     const logoRef = useRef(null);     // 로고 텍스트 영역 (<div className="logo">)
     const lineRef = useRef(null);     // 빨간 스캔 라인 (<div className="scan-line">)
-    const videoRef = useRef(null);    // <video> 요소 직접 참조
+    const videoRef = useRef(null);    // <video> ��소 직접 참조
     const playerRef = useRef(null);   // video.js에서 생성된 플레이어 인스턴스 저장
 
     // ✅ useState 훅으로 동적인 상태들을 정의
@@ -345,13 +345,11 @@ const BarcodeIntro = () => {
                     <div className={`video-container ${showPopup ? 'shrink' : ''} show`} style={{
                         display: 'flex',                        // ✅ 기존과 동일
                         flexDirection: 'row',                   // ✅ 가로 정렬
-                        justifyContent: 'flex-start',           // ✅ 왼쪽부터 정렬
-                        alignItems: 'flex-start',
+                        justifyContent: 'center',               // 수평 중앙
+                        alignItems: 'center',                   // ✅ 수직 중앙
                         gap: '1rem',                            // ✅ 비디오와 패널 사이 간격
                         width: '100%',
                         height: '100%',
-                        justifyContent: 'center',    // 수평 중앙
-                        alignItems: 'center',        // ✅ 수직 중앙
                     }}>
                         <div id="video-container" style={{
                             position: 'relative',
