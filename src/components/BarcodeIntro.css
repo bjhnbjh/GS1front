@@ -46,9 +46,11 @@ body {
 .video-js {
   width: 100% !important;         /* 플레이어 너비 100% 강제 적용 */
   height: 100% !important;        /* 플레이어 높이 100% 강제 적용 */
-  background-color: black;        /* 검정 배경 (화면 깨짐 방지) */
+  background-color: rgba(0, 0, 0, 0.8); /* 반투명 검정 배경 */
   position: relative;             /* 내부 컨트롤 UI를 배치하기 위한 기준 */
-  overflow: visible !important;  /* 컨트롤바가 잘리지 않게 */
+  overflow: visible !important;   /* 컨트롤바가 잘리지 않게 */
+  border-radius: 15px;            /* 둥근 모서리 */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
 }
 
 .video-js.vjs-fullscreen {
@@ -67,7 +69,7 @@ body {
 
 .vjs-fullscreen-control {
   z-index: 1002 !important;        /* 다른 버튼 위 */
-  opacity: 1 !important;           /* 항상 보이게 */
+  opacity: 1 !important;           /* 항��� 보이게 */
   display: flex !important;        /* 아이콘 보이도록 flex 처리 */
 }
 
