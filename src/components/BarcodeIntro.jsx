@@ -35,7 +35,7 @@ const BarcodeIntro = () => {
     const [objectClicked, setObjectClicked] = useState(false);            // JSON에서 불러온 아이템 리스트
     const [gs1url, setgs1url] = useState("");            // JSON에서 불러온 아이템 리스트
     const [itemList, setItemList] = useState([]);            // JSON에서 불러온 아이템 리스트
-    const [selectedIndex, setSelectedIndex] = useState(null);// 클릭된 항목 인덱스 (펼치기용)
+    const [selectedIndex, setSelectedIndex] = useState(null);// 클릭된 항목 인덱스 (펼치기���)
 
     // ✅ 팝업이 열릴 때마다 video.js의 크기를 다시 계산해줌
     useEffect(() => {
@@ -220,7 +220,7 @@ const BarcodeIntro = () => {
                 currentCtx.closePath();
                 currentCtx.stroke();
 
-                // 후광 효과 (파��색)
+                // 후광 효과 (파란색)
                 currentCtx.shadowColor = "rgba(0, 250, 255, 1)";
                 currentCtx.shadowBlur = 10;
                 currentCtx.shadowOffsetX = 0;
@@ -343,7 +343,7 @@ const BarcodeIntro = () => {
                 {/* 비디오 플레이어 영역 */}
                 {showVideo && (
                     <div className={`video-container ${showPopup ? 'shrink' : ''} show`} style={{
-                        display: 'flex',                        // ✅ 기존과 동일
+                        display: 'flex',                        // ��� 기존과 동일
                         flexDirection: 'row',                   // ✅ 가로 정렬
                         justifyContent: 'center',               // 수평 중앙
                         alignItems: 'center',                   // ✅ 수직 중앙
@@ -360,6 +360,10 @@ const BarcodeIntro = () => {
                             // maxWidth: showPopup ? '80%' : '100%',         // ✅ 팝업 있을 때만 줄어듦
                             maxWidth: '80%',         // ✅ 팝업 있을 때만 줄어듦
                         }}>
+                            {/* 비디오 오버레이 텍스트 */}
+                            <div className="video-overlay-text">
+                                GS1 Media 동영상 객체 탐지
+                            </div>
                             <video id="my-video" ref={videoRef} className="video-js vjs-default-skin video show" playsInline>
                                 <source src={`${process.env.PUBLIC_URL}/testVid_1.25.mp4`} type="video/mp4" />
                                 <track kind="metadata" src={`${process.env.PUBLIC_URL}/gs1media_dl_metadata.vtt`} srcLang="en" label="Polygon" default />
