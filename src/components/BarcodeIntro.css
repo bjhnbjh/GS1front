@@ -246,7 +246,7 @@ body {
   cursor: pointer;
   z-index: 2147483647;            /* 거의 최상위 (모든 것 위에 있음) */
   opacity: 0.8;                   /* 약간 투명 */
-  transition: all 0.3s ease;     /* 부드러운 전환 */
+  transition: all 0.3s ease;     /* 부드러운 ��환 */
   box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2); /* 왼쪽 그림자 */
 }
 
@@ -279,7 +279,8 @@ body {
   top: 0;
   right: 0;
   /* width: 400px;                             고정 너비 */
-  height: 100%;
+  height: calc(100vh - 60px);  /* 제목 높이 제외 */
+  margin-top: 60px;             /* 제목 아래부터 시작 */
   background: rgba(255, 255, 255, 0.95); /* 반투명 흰 배경 */
   backdrop-filter: blur(15px);            /* 유리 효과 */
   z-index: 11;                            /* 영상보다 위, 버튼보다는 아래 */
