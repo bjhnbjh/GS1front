@@ -47,10 +47,41 @@ body {
   width: 100% !important;         /* 플레이어 너비 100% 강제 적용 */
   height: 100% !important;        /* 플레이어 높이 100% 강제 적용 */
   background-color: rgba(0, 0, 0, 0.8); /* 반투명 검정 배경 */
-  position: relative;             /* 내부 컨트롤 UI를 배치하기 위한 기준 */
+  position: relative;             /* 내부 컨트롤 UI를 배치하기 위한 ���준 */
   overflow: visible !important;   /* 컨트롤바가 잘리지 않게 */
   border-radius: 15px;            /* 둥근 모서리 */
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
+}
+
+/* ===== [3-1] 비디오 오버레이 텍스트 ===== */
+.video-overlay-text {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  z-index: 1000;
+  letter-spacing: 1px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  animation: fadeInSlide 0.8s ease-out;
+}
+
+@keyframes fadeInSlide {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .video-js.vjs-fullscreen {
@@ -63,7 +94,7 @@ body {
   z-index: 1001 !important;        /* 다른 요소보다 위 */
   visibility: visible !important;  /* 항상 보이도록 설정 */
   opacity: 1 !important;           /* 완전히 불투명 */
-  position: absolute !important;   /* 하단에 고정 */
+  position: absolute !important;   /* 하단에 ���정 */
   bottom: 0 !important;            /* 하단 기준 위치 */
 }
 
@@ -159,7 +190,7 @@ body {
   opacity: 0;              /* 서서히 사라짐 */
 }
 
-/* ===== [7] 빨간 ��캔 라인 애니메이션 ===== */
+/* ===== [7] 빨간 스캔 라인 애니메이션 ===== */
 .scan-line {
   display: none; /* 기본 숨김 */
 }
@@ -212,7 +243,7 @@ body {
   z-index: 2147483647;            /* 거의 최상위 (모든 것 위에 있음) */
   opacity: 0.8;                   /* 약간 투명 */
   transition: all 0.3s ease;     /* 부드러운 전환 */
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2); /* 왼쪽 그림자 */
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2); /* ���쪽 그림자 */
 }
 
 .right-bar:hover {
