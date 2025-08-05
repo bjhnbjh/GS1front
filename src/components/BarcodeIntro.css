@@ -11,10 +11,10 @@ body {
 }
 
 .App {
-  position: relative;         /* 자식 ��소들의 position 기준이 됨 */
+  position: relative;         /* 자식 요소들의 position 기준이 됨 */
   width: 100%;                /* 가로 전체 사용 */
   height: 100%;               /* 세로 전체 사용 */
-  background: linear-gradient(135deg, #5fbeeb 0%, #3da8d4 100%); /* KAIST 스타일 파란 그라데이션 */
+  background: linear-gradient(135deg, #5fbeeb 0%, #3da8d4 100%); /* KAIST 스타일 파란 그라데이��� */
 }
 
 /* ===== [2] 비디오 컨테이너 (화면 꽉 채움) ===== */
@@ -190,7 +190,7 @@ body {
   opacity: 0;              /* 서서히 사라짐 */
 }
 
-/* ===== [7] 빨간 스캔 라인 애니메이션 ===== */
+/* ===== [7] 빨간 스캔 라인 애��메이션 ===== */
 .scan-line {
   display: none; /* 기본 숨김 */
 }
@@ -281,6 +281,20 @@ body {
   background: transparent; /* 투명한 배경 */
   font-size: 1.2rem;
   cursor: pointer;
+  color: #666;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.popup-close:hover {
+  background: rgba(255, 0, 0, 0.1);
+  color: #e74c3c;
+  transform: scale(1.1);
 }
 
 /* 패널 안의 리스트 초기화 */
