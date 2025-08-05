@@ -61,16 +61,20 @@ body {
   width: 100%;
   text-align: center;
   color: white;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 700;
   margin: 0;
-  padding: 30px 20px;
+  padding: 15px 20px;
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   letter-spacing: 2px;
   z-index: 1000;
   background: rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(5px);
   animation: fadeInSlide 0.8s ease-out;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @keyframes fadeInSlide {
@@ -92,7 +96,7 @@ body {
 /* ===== [4] video.js 컨트롤바 항상 보이기 ===== */
 .vjs-control-bar {
   z-index: 1001 !important;        /* 다른 요소보다 위 */
-  visibility: visible !important;  /* 항상 보���도록 설정 */
+  visibility: visible !important;  /* 항상 보이도록 설정 */
   opacity: 1 !important;           /* 완전히 불투명 */
   position: absolute !important;   /* 하단에 ���정 */
   bottom: 0 !important;            /* 하단 기준 위치 */
@@ -152,7 +156,7 @@ body {
   transition: right 0.4s ease;  /* 오른쪽 위치 부드럽게 이동 */
 }
 
-/* 사이드바 열렸을 때, 재진입 버튼 왼쪽으�� 이동 */
+/* 사이드바 열렸을 때, 재진입 버튼 왼쪽으로 이동 */
 .App.sidebar-is-open .start-btn.reenter-fullscreen {
   right: calc(300px + 4rem); /* 사이드바 너비 + 여백 */
 }
