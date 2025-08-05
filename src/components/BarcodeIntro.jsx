@@ -35,7 +35,7 @@ const BarcodeIntro = () => {
     const [objectClicked, setObjectClicked] = useState(false);            // JSON에서 불러온 아이템 리스트
     const [gs1url, setgs1url] = useState("");            // JSON에서 불러온 아이템 리스트
     const [itemList, setItemList] = useState([]);            // JSON에서 불러온 아이템 리스트
-    const [selectedIndex, setSelectedIndex] = useState(null);// 클릭된 항목 인덱스 (펼치기���)
+    const [selectedIndex, setSelectedIndex] = useState(null);// 클릭된 항목 인덱스 (펼치기용)
 
     // ✅ 팝업이 열릴 때마다 video.js의 크기를 다시 계산해줌
     useEffect(() => {
@@ -343,7 +343,7 @@ const BarcodeIntro = () => {
                 {/* 비디오 플레이어 영역 */}
                 {showVideo && (
                     <div className={`video-container ${showPopup ? 'shrink' : ''} show`} style={{
-                        display: 'flex',                        // ��� 기존과 동일
+                        display: 'flex',                        // ✅ 기존과 동일
                         flexDirection: 'row',                   // ✅ 가로 정렬
                         justifyContent: 'center',               // 수평 중앙
                         alignItems: 'center',                   // ✅ 수직 중앙
@@ -427,6 +427,7 @@ const BarcodeIntro = () => {
                                             <li key={idx} style={{ marginBottom: '1rem' }}>
                                                 {/* 상단 버튼: name(제품명) + bye(카테고리) */}
                                                 <button
+                                                    className="panel-item-button"
                                                     onClick={() => setSelectedIndex(selectedIndex === idx ? null : idx)}
                                                     style={{
                                                         display: 'flex',
