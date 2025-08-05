@@ -37,7 +37,7 @@ const BarcodeIntro = () => {
     const [itemList, setItemList] = useState([]);            // JSON에서 불러온 아이템 리스트
     const [selectedIndex, setSelectedIndex] = useState(null);// 클릭된 항목 인덱스 (펼치기용)
 
-    // ✅ 팝업이 열릴 때마다 video.js의 크기를 다시 계��해줌
+    // ✅ 팝업이 열릴 때마다 video.js의 크기를 다시 계산해줌
     useEffect(() => {
         const timer = setTimeout(() => {
             if (playerRef.current) {
@@ -340,6 +340,13 @@ const BarcodeIntro = () => {
             {/* <div className="scan-line" ref={lineRef}></div> */}
 
             <div>
+                {/* 비디오 제목 */}
+                {showVideo && (
+                    <div className="video-title">
+                        GS1 Media 동영상 객체 탐지
+                    </div>
+                )}
+
                 {/* 비디오 플레이어 영역 */}
                 {showVideo && (
                     <div className={`video-container ${showPopup ? 'shrink' : ''} show`} style={{
