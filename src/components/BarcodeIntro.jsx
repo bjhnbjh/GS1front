@@ -3,7 +3,7 @@ import React, {
     useEffect,      // 📌 화면이 처음 렌더링되거나 특정 값이 바뀔 때 실행되는 side effect 정의 (React에서 제공)
     useRef,         // 📌 HTML 요소를 직접 참조하기 위해 사용 (DOM 접근) (React에서 제공)
     useState,       // 📌 컴포넌트 내부의 상태 값을 정의하고 갱신할 수 있는 hook (React에서 제공)
-    useCallback     // 📌 함수를 메모이제이션해서 렌더링 시 재생성 방지 (React에서 제공)
+    useCallback     // 📌 함수를 메모이제이션해서 ���더링 시 재생성 방지 (React에서 제공)
 } from 'react';
 
 // ✅ video.js 라이브러리 import (외부 라이브러리)
@@ -56,7 +56,7 @@ const BarcodeIntro = () => {
     //     else if (elem.msRequestFullscreen) elem.msRequestFullscreen();
     // };
 
-    // ✅ 스캔 애니메이션 실행 함수 (스페이스바 또는 조건 만족 시 ��행)
+    // ✅ 스캔 애니메이션 실행 함수 (스페이스바 또는 조건 만족 시 실행)
     const handleScan = useCallback(() => {
         if (!scanned && logoRef.current?.classList.contains('show')) {
             setScanned(true); // 스캔 시작 표시
@@ -411,16 +411,7 @@ const BarcodeIntro = () => {
                                     <button className="popup-close" onClick={() => {
                                         setShowPopup(false);
                                         playerRef.current?.play();
-                                    }}
-                                        style={{
-                                            background: 'none',
-                                            border: 'none',
-                                            fontSize: '1.5rem',
-                                            float: 'right',
-                                            cursor: 'pointer',
-                                            color: '#777',
-                                            marginBottom: '1rem',
-                                        }}>✕</button>
+                                    }}>✕</button>
                                     <h3 style={{ margin: '15px 5px' }}>📦 &nbsp;아래 항목을 선택하세요</h3>
                                     <ul>
                                         {itemList.map((item, idx) => (
