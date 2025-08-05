@@ -37,7 +37,7 @@ const BarcodeIntro = () => {
     const [itemList, setItemList] = useState([]);            // JSON에서 불러온 아이템 리스트
     const [selectedIndex, setSelectedIndex] = useState(null);// 클릭된 항목 인덱스 (펼치기용)
 
-    // ✅ 팝업이 열릴 때마다 video.js의 크기를 다시 계산해줌
+    // ✅ 팝업이 열릴 때마다 video.js의 크기를 다시 계��해줌
     useEffect(() => {
         const timer = setTimeout(() => {
             if (playerRef.current) {
@@ -360,10 +360,7 @@ const BarcodeIntro = () => {
                             // maxWidth: showPopup ? '80%' : '100%',         // ✅ 팝업 있을 때만 줄어듦
                             maxWidth: '80%',         // ✅ 팝업 있을 때만 줄어듦
                         }}>
-                            {/* 비디오 오버레이 텍스트 */}
-                            <div className="video-overlay-text">
-                                GS1 Media 동영상 객체 탐지
-                            </div>
+
                             <video id="my-video" ref={videoRef} className="video-js vjs-default-skin video show" playsInline>
                                 <source src={`${process.env.PUBLIC_URL}/testVid_1.25.mp4`} type="video/mp4" />
                                 <track kind="metadata" src={`${process.env.PUBLIC_URL}/gs1media_dl_metadata.vtt`} srcLang="en" label="Polygon" default />
