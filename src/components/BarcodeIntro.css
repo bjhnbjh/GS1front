@@ -55,14 +55,21 @@ body {
 
 /* ===== [3-1] 비디오 제목 ===== */
 .video-title {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   text-align: center;
   color: white;
   font-size: 2.5rem;
   font-weight: 700;
-  margin: 20px 0;
-  padding: 20px;
+  margin: 0;
+  padding: 30px 20px;
   text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   letter-spacing: 2px;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
   animation: fadeInSlide 0.8s ease-out;
 }
 
@@ -183,7 +190,7 @@ body {
   opacity: 0;              /* 서서히 사라짐 */
 }
 
-/* ===== [7] 빨간 스캔 라인 애니메이션 ===== */
+/* ===== [7] 빨간 스캔 라인 ��니메이션 ===== */
 .scan-line {
   display: none; /* 기본 숨김 */
 }
@@ -273,7 +280,7 @@ body {
   backdrop-filter: blur(15px);            /* 유리 효과 */
   z-index: 11;                            /* 영상보다 위, 버튼보다는 아래 */
 
-  box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15); /* 왼쪽으로 그림자 효과 */
+  box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15); /* 왼쪽으로 ���림자 효과 */
   transform: translateX(100%);            /* 처음엔 화면 밖에 숨김 */
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* 부드럽게 나타나��� */
   border-left: 1px solid rgba(255, 255, 255, 0.3); /* 왼쪽 테두리 */
