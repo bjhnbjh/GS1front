@@ -220,7 +220,7 @@ const BarcodeIntro = () => {
                 currentCtx.closePath();
                 currentCtx.stroke();
 
-                // 후광 효과 (파란색)
+                // 후광 효과 (파��색)
                 currentCtx.shadowColor = "rgba(0, 250, 255, 1)";
                 currentCtx.shadowBlur = 10;
                 currentCtx.shadowOffsetX = 0;
@@ -430,9 +430,7 @@ const BarcodeIntro = () => {
                                                         alignItems: 'center',
                                                         width: '100%',
                                                         padding: '0.5rem 1rem',
-                                                        border: '1px solid #ccc',
                                                         cursor: 'pointer',
-                                                        background: 'white',
                                                         fontSize: '1rem',
                                                         textAlign: 'left',
                                                         flexDirection: 'column',
