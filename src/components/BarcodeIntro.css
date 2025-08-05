@@ -1,0 +1,227 @@
+/* ===== [1] 문서 전체 초기화 ===== */
+html,
+body {
+  margin: 0;                  /* 기본 여백 제거 (브라우저 기본 여백 방지) */
+  padding: 0;                 /* 내부 여백 제거 */
+  width: 100%;                /* 브라우저 가로 전체 사용 */
+  height: 100%;               /* 브라우저 세로 전체 사용 */
+  background: black;          /* 배경색 검정 */
+  overflow: hidden;           /* 스크롤바 제거 (검정 배경을 꽉 채우기 위함) */
+}
+
+.App {
+  position: relative;         /* 자식 요소들의 position 기준이 됨 */
+  width: 100%;                /* 가로 전체 사용 */
+  height: 100%;               /* 세로 전체 사용 */
+}
+
+/* ===== [2] 비디오 컨테이너 (화면 꽉 채움) ===== */
+.video-container {
+  position: fixed;              /* 스크롤과 무관하게 항상 고정 */
+  top: 0;
+  left: 0;
+  width: 100vw;                 /* 뷰포트 전체 너비 */
+  height: 100vh;                /* 뷰포트 전체 높이 */
+  background: black;           /* 배경색 검정 (로딩 중 대비) */
+  display: flex;               /* 내부 요소 가운데 정렬 위해 Flex 사용 */
+  justify-content: center;     /* 가로 가운데 */
+  align-items: center;         /* 세로 가운데 */
+  z-index: 10;                 /* 다른 요소 위에 나타나도록 설정 */
+  overflow: visible;           /* 내부 오버플로우 허용 (컨트롤바가 튀어나와도 보이게) */
+}
+
+.video-container.show {
+  display: flex;               /* show 클래스가 붙으면 보이게 설정 */
+}
+
+.video-container.shrink {
+  width: calc(100vw - 300px);  /* 오른쪽 사이드바 너비만큼 공간 확보 (영상 축소) */
+}
+
+/* ===== [3] video.js 플레이어 ===== */
+.video-js {
+  width: 100% !important;         /* 플레이어 너비 100% 강제 적용 */
+  height: 100% !important;        /* 플레이어 높이 100% 강제 적용 */
+  background-color: black;        /* 검정 배경 (화면 깨짐 방지) */
+  position: relative;             /* 내부 컨트롤 UI를 배치하기 위한 기준 */
+  overflow: visible !important;  /* 컨트롤바가 잘리지 않게 */
+}
+
+.video-js.vjs-fullscreen {
+  width: 100% !important;         /* 전체화면에서도 꽉 채움 */
+  height: 100% !important;
+}
+
+/* ===== [4] video.js 컨트롤바 항상 보이기 ===== */
+.vjs-control-bar {
+  z-index: 1001 !important;        /* 다른 요소보다 위 */
+  visibility: visible !important;  /* 항상 보이도록 설정 */
+  opacity: 1 !important;           /* 완전히 불투명 */
+  position: absolute !important;   /* 하단에 고정 */
+  bottom: 0 !important;            /* 하단 기준 위치 */
+}
+
+.vjs-fullscreen-control {
+  z-index: 1002 !important;        /* 다른 버튼 위 */
+  opacity: 1 !important;           /* 항상 보이게 */
+  display: flex !important;        /* 아이콘 보이도록 flex 처리 */
+}
+
+.vjs-control {
+  z-index: 1001 !important;
+  overflow: visible !important;    /* 아이콘 잘리지 않게 */
+}
+
+/* ===== [5] START 버튼 (처음 화면 중앙) ===== */
+.start-btn {
+  position: fixed;                    /* 화면에 고정 */
+  top: 50%;                           /* 세로 중앙 */
+  left: 50%;                          /* 가로 중앙 */
+  transform: translate(-50%, -50%);   /* 정확한 중앙 정렬 */
+  padding: 1rem 2rem;                 /* 여백: 상하 1rem, 좌우 2rem */
+  font-size: 1.5rem;                  /* 큰 글씨 */
+  background: transparent;            /* 투명 배경 */
+  border: 2px solid white;            /* 흰 테두리 */
+  color: white;                       /* 글자 흰색 */
+  cursor: pointer;                    /* 마우스 오버 시 손 모양 */
+  z-index: 9999;                      /* 최상위에 표시 */
+}
+
+/* 전체화면 재진입 버튼 (우측 하단 작게 표시됨) */
+.start-btn.reenter-fullscreen {
+  top: auto;               /* 기존 중앙 정렬 제거 */
+  left: auto;
+  transform: none;
+
+  right: 2rem;             /* 오른쪽에서 2rem 떨어짐 */
+  bottom: 3rem;            /* 아래쪽에서 3rem 떨어짐 */
+
+  padding: 0.8rem 1.5rem;  /* 작게 조정된 여백 */
+  font-size: 1rem;         /* 글씨도 작게 */
+
+  transition: right 0.4s ease;  /* 오른쪽 위치 부드럽게 이동 */
+}
+
+/* 사이드바 열렸을 때, 재진입 버튼 왼쪽으로 이동 */
+.App.sidebar-is-open .start-btn.reenter-fullscreen {
+  right: calc(300px + 4rem); /* 사이드바 너비 + 여백 */
+}
+
+/* ===== [6] 로고 애니메이션 영역 ===== */
+.logo {
+  display: none;           /* 기본 상태는 숨김 */
+}
+
+.logo.show {
+  display: flex;           /* 중앙 정렬을 위해 flex 사용 */
+  justify-content: center;
+  align-items: center;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  font-size: 20rem;        /* 매우 큰 로고 글씨 */
+  font-weight: bold;
+  color: white;            /* 흰 글자 */
+  opacity: 1;              /* 완전히 보임 */
+  transition: opacity 1s ease; /* 점점 사라지는 효과 */
+  z-index: 2;
+  font-family: sans-serif; /* 기본 글꼴 사용 */
+}
+
+.logo.hide {
+  opacity: 0;              /* 서서히 사라짐 */
+}
+
+/* ===== [7] 빨간 스캔 라인 애니메이션 ===== */
+.scan-line {
+  display: none; /* 기본 숨김 */
+}
+
+.scan-line.show {
+  display: block;
+  position: fixed;
+  width: 80%;                     /* 화면 가로 80% */
+  height: 10px;                   /* 선의 두께 */
+  background: red;                /* 빨간색 선 */
+  left: 50%;                      /* 중앙 정렬 */
+  transform: translateX(-50%);
+  top: 50%;
+  opacity: 0;                     /* 초기 투명 */
+  animation: scan 1.5s ease forwards; /* scan 키프레임 애니메이션 실행 */
+  z-index: 3;
+}
+
+/* 스캔 라인이 위에서 아래로 움직이며 사라짐 */
+@keyframes scan {
+  0% {
+    top: 35%;   /* 시작 위치 */
+    opacity: 1;
+  }
+
+  90% {
+    top: 65%;   /* 거의 도달한 위치 */
+    opacity: 1;
+  }
+
+  100% {
+    top: 65%;
+    opacity: 0; /* 사라짐 */
+  }
+}
+
+/* ===== [8] 오른쪽 바 (패널 여는 버튼) ===== */
+.right-bar {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 80px;
+  background: white;               /* 흰 배경 */
+  border: none;                   /* 테두리 없음 */
+  border-radius: 10px 0 0 10px;   /* 왼쪽 둥글게 처리 */
+  cursor: pointer;
+  z-index: 2147483647;            /* 거의 최상위 (모든 것 위에 있음) */
+  opacity: 0.7;                   /* 약간 투명 */
+}
+
+/* ===== [9] 오른쪽 팝업 패널 ===== */
+.popup-panel {
+  /* position: fixed; */
+  top: 0;
+  right: 0;
+  /* width: 400px;                             고정 너비 */
+  height: 100%;
+  background: white;
+  z-index: 11;                              /* 영상보다 위, 버튼보다는 아래 */
+  
+  box-shadow: -3px 0 8px rgba(0, 0, 0, 0.2);/* 왼쪽으로 그림자 효과 */
+  transform: translateX(100%);              /* 처음엔 화면 밖에 숨김 */
+  transition: transform 1.4s ease;          /* 부드럽게 나타나기 */
+}
+
+.popup-panel.show {
+  transform: translateX(0); /* 패널이 화면 안으로 슬라이드 됨 */
+}
+
+/* 패널 안의 닫기 버튼 */
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: transparent; /* 투명한 배경 */
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+/* 패널 안의 리스트 초기화 */
+.popup-panel ul {
+  list-style: none; /* 점 제거 */
+  padding-left: 0;
+  margin: 5px;
+}

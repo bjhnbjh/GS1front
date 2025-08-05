@@ -1,0 +1,116 @@
+{
+    "entryTitle": "1 kilo Coffee",
+    "originalPath": "/01/88000269314144/",
+    "description": "root",
+    "defaultLink": {
+        "targetURL": "https://id.oliot.org/01/88000269314144",
+        "title": "templateDS",
+        "linkType": "gs1:menuInfo"
+    },
+    "links": [
+        {
+            "targetURL": "https://id.oliot.org/demos/coffee",
+            "title": "service menu Info",
+            "linkType": "gs1:menuInfo",
+            "supportLanguage": "en",
+            "contentType": "text/html",
+            "fwqs": true
+        },
+        {
+            "targetURL": "https://id.oliot.org/demos/coffee/pip",
+            "title": "product information",
+            "linkType": "gs1:pip",
+            "supportLanguage": "en",
+            "contentType": "text/html",
+            "fwqs": true
+        },
+        {
+            "targetURL": "https://1kgcoffee.co.kr/main/index.php",
+            "title": "homepage",
+            "linkType": "gs1:homepage",
+            "supportLanguage": "en",
+            "contentType": "text/html",
+            "fwqs": true
+        },
+        {
+            "targetURL": "https://1kgcoffee.co.kr/board/list.php?bdId=event",
+            "title": "promotion page",
+            "linkType": "gs1:promotion",
+            "supportLanguage": "en",
+            "contentType": "text/html",
+            "fwqs": true
+        },
+        {
+            "targetURL": "https://id.oliot.org/demos/coffee/support",
+            "title": "support page",
+            "linkType": "gs1:support",
+            "supportLanguage": "en",
+            "contentType": "text/html",
+            "fwqs": true
+        },
+        {
+            "targetURL": "https://id.oliot.org/demos/coffee/reviews",
+            "title": "reviews page",
+            "linkType": "gs1:review",
+            "supportLanguage": "en",
+            "contentType": "text/html",
+            "fwqs": true
+        },
+        {
+            "targetURL": "https://www.youtube.com/channel/UCEtruBz6wuUdS_wFG2KPgXw",
+            "title": "videos page",
+            "linkType": "gs1:relatedVideo",
+            "supportLanguage": "en",
+            "contentType": "text/html",
+            "fwqs": true
+        },
+        {
+            "targetURL": "https://id.oliot.org/demos/coffee/instructions",
+            "title": "instruction page",
+            "linkType": "gs1:instructions",
+            "supportLanguage": "en",
+            "contentType": "text/html",
+            "fwqs": false
+        },
+        {
+            "targetURL": "https://id.oliot.org/demos/coffee/faqs",
+            "title": "FAQ page",
+            "linkType": "gs1:faqs",
+            "supportLanguage": "en",
+            "contentType": "text/html",
+            "fwqs": false
+        },
+        {
+            "targetURL": "https://id.oliot.org/demos/coffee/components",
+            "title": "individual product info page",
+            "linkType": "gs1:whatsInTheBox",
+            "supportLanguage": "en",
+            "contentType": "text/html",
+            "fwqs": false
+        },
+        {
+            "targetURL": "https://www.instagram.com/1kgcoffee/",
+            "title": "SNS page",
+            "linkType": "gs1:socialMedia",
+            "supportLanguage": "en",
+            "contentType": "text/html",
+            "fwqs": false
+        },
+        {
+            "targetURL": "https://www.verywellfit.com/coffee-nutrition-facts-and-health-benefits-3495233",
+            "title": "nutritional info page",
+            "linkType": "gs1:nutritionalInfo",
+            "supportLanguage": "en",
+            "contentType": "text/html",
+            "fwqs": false
+        },
+        {
+            "targetURL": " https://id.oliot.org/ds/demos/coffee",
+            "title": "templateDS",
+            "linkType": "gs1:menuInfo",
+            "supportLanguage": "ko",
+            "contentType": "text/html",
+            "fwqs": true
+        }
+    ]
+}
