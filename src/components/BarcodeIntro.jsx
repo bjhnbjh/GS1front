@@ -11,7 +11,7 @@ import React, {
 import videojs from 'video.js';
 
 // ✅ video.js UI에 필요한 CSS 파일 불러오기
-import 'video.js/dist/video-js.css'; // 재생 버튼, 타임바 등 video.js UI 구성에 필요
+import 'video.js/dist/video-js.css'; // 재��� 버튼, 타임바 등 video.js UI 구성에 필요
 
 // ✅ 이 컴포넌트 전용 스타일시트 (애니메이션, 배치 등)
 import './BarcodeIntro.css';
@@ -319,6 +319,10 @@ const BarcodeIntro = () => {
                     // enterFullScreen();
                     setStarted(true);
                     logoRef.current?.classList.add('show');
+                    // 스페이스바 입력 없이 바로 스캔 진행
+                    setTimeout(() => {
+                        handleScan();
+                    }, 1500); // 로고가 나타난 후 1.5초 뒤 자동 진행
                 }}>
                     START
                 </button>
