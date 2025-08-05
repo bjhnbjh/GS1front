@@ -14,6 +14,7 @@ body {
   position: relative;         /* 자식 요소들의 position 기준이 됨 */
   width: 100%;                /* 가로 전체 사용 */
   height: 100%;               /* 세로 전체 사용 */
+  background: linear-gradient(135deg, #5fbeeb 0%, #3da8d4 100%); /* KAIST 스타일 파란 그라데이션 */
 }
 
 /* ===== [2] 비디오 컨테이너 (화면 꽉 채움) ===== */
@@ -148,7 +149,7 @@ body {
   width: 80%;                     /* 화면 가로 80% */
   height: 10px;                   /* 선의 두께 */
   background: red;                /* 빨간색 선 */
-  left: 50%;                      /* 중앙 ��렬 */
+  left: 50%;                      /* 중앙 정렬 */
   transform: translateX(-50%);
   top: 50%;
   opacity: 0;                     /* 초기 투명 */
@@ -198,7 +199,7 @@ body {
   /* width: 400px;                             고정 너비 */
   height: 100%;
   background: white;
-  z-index: 11;                              /* 영상보다 위, 버튼보다는 ���래 */
+  z-index: 11;                              /* 영상보다 위, 버튼보다는 아래 */
   
   box-shadow: -3px 0 8px rgba(0, 0, 0, 0.2);/* 왼쪽으로 그림자 효과 */
   transform: translateX(100%);              /* 처음엔 화면 밖에 숨김 */
