@@ -56,7 +56,7 @@ const BarcodeIntro = () => {
     //     else if (elem.msRequestFullscreen) elem.msRequestFullscreen();
     // };
 
-    // ✅ 스캔 애니메이션 실행 함수 (스페이스바 또는 조건 만족 시 실행)
+    // ✅ 스캔 애니메이션 실행 함수 (스페이스바 또는 조건 만족 시 ��행)
     const handleScan = useCallback(() => {
         if (!scanned && logoRef.current?.classList.contains('show')) {
             setScanned(true); // 스캔 시작 표시
@@ -475,6 +475,7 @@ const BarcodeIntro = () => {
                                                             link.linkType !== 'gs1:relatedImage' && (
                                                                 <button
                                                                     key={i}
+                                                                    className="service-link-button"
                                                                     onClick={() => window.open(link.targetURL, '_blank', 'noopener,noreferrer')}
                                                                     style={{
                                                                         marginBottom: '0.5rem',
