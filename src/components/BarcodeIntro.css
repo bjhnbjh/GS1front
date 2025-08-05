@@ -11,7 +11,7 @@ body {
 }
 
 .App {
-  position: relative;         /* 자식 요소들의 position 기준이 됨 */
+  position: relative;         /* 자식 ��소들의 position 기준이 됨 */
   width: 100%;                /* 가로 전체 사용 */
   height: 100%;               /* 세로 전체 사용 */
   background: linear-gradient(135deg, #5fbeeb 0%, #3da8d4 100%); /* KAIST 스타일 파란 그라데이션 */
@@ -47,7 +47,7 @@ body {
   width: 100% !important;         /* 플레이어 너비 100% 강제 적용 */
   height: 100% !important;        /* 플레이어 높이 100% 강제 적용 */
   background-color: rgba(0, 0, 0, 0.8); /* 반투명 검정 배경 */
-  position: relative;             /* 내부 컨트롤 UI를 배치하기 위한 ���준 */
+  position: relative;             /* 내부 컨트롤 UI를 배치하기 위한 기준 */
   overflow: visible !important;   /* 컨트롤바가 잘리지 않게 */
   border-radius: 15px;            /* 둥근 모서리 */
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
@@ -243,7 +243,7 @@ body {
   z-index: 2147483647;            /* 거의 최상위 (모든 것 위에 있음) */
   opacity: 0.8;                   /* 약간 투명 */
   transition: all 0.3s ease;     /* 부드러운 전환 */
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2); /* ���쪽 그림자 */
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2); /* 왼쪽 그림자 */
 }
 
 .right-bar:hover {
@@ -288,4 +288,28 @@ body {
   list-style: none; /* 점 제거 */
   padding-left: 0;
   margin: 5px;
+}
+
+/* ===== [10] 패널 항목 호버 효과 ===== */
+.panel-item-button {
+  transition: all 0.2s ease !important;
+}
+
+.panel-item-button:hover {
+  background: #f0f8ff !important;
+  border-color: #87ceeb !important;
+  box-shadow: 0 4px 15px rgba(135, 206, 235, 0.3) !important;
+  transform: translateY(-2px);
+}
+
+/* GS1 디지털링크 서비스 리스트 항목 호버 효과 */
+.service-link-button {
+  transition: all 0.2s ease !important;
+}
+
+.service-link-button:hover {
+  background: #f0f8ff !important;
+  border-color: #4a90e2 !important;
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.3) !important;
+  transform: translateX(5px);
 }
