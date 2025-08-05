@@ -73,7 +73,7 @@ body {
 
 .vjs-control {
   z-index: 1001 !important;
-  overflow: visible !important;    /* 아이콘 잘��지 않게 */
+  overflow: visible !important;    /* 아이콘 잘리지 않게 */
 }
 
 /* ===== [5] START 버튼 (처음 화면 중앙) ===== */
@@ -140,13 +140,17 @@ body {
   width: 100%;
   height: 100%;
 
-  font-size: 20rem;        /* 매우 큰 로고 글씨 */
-  font-weight: bold;
+  font-size: 16rem;        /* 큰 로고 글씨 */
+  font-weight: 700;        /* 볼드 */
   color: white;            /* 흰 글자 */
   opacity: 1;              /* 완전히 보임 */
   transition: opacity 1s ease; /* 점점 사라지는 효과 */
   z-index: 2;
-  font-family: sans-serif; /* 기본 글꼴 사용 */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* 모던한 글꼴 */
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* 글자 그림자 */
+  letter-spacing: 3px;     /* 글자 간격 */
+  text-align: center;      /* 텍스트 중앙 정렬 */
+  background: linear-gradient(135deg, #5fbeeb 0%, #3da8d4 100%); /* 그라데이션 배경 */
 }
 
 .logo.hide {
