@@ -3,7 +3,7 @@ import React, {
     useEffect,      // 📌 화면이 처음 렌더링되거나 특정 값이 바뀔 때 실행되는 side effect 정의 (React에서 제공)
     useRef,         // 📌 HTML 요소를 직접 참조하기 위해 사용 (DOM 접근) (React에서 제공)
     useState,       // 📌 컴포넌트 내부의 상태 값을 정의하고 갱신할 수 있는 hook (React에서 제공)
-    useCallback     // 📌 함수를 메모이제이션해서 ���더링 시 재생성 방지 (React에서 제공)
+    useCallback     // 📌 함수를 메모이제이션해서 렌더링 시 재생성 방지 (React에서 제공)
 } from 'react';
 
 // ✅ video.js 라이브러리 import (외부 라이브러리)
@@ -313,7 +313,7 @@ const BarcodeIntro = () => {
     // ✅ 화면 렌더링
     return (
         <div className={`App ${showPopup ? 'sidebar-is-open' : ''}`}>
-            {/* 시�� 버튼 */}
+            {/* 시작 버튼 */}
             {!started && (
                 <button className="start-btn" onClick={() => {
                     // enterFullScreen();
@@ -342,12 +342,18 @@ const BarcodeIntro = () => {
             <div>
                 {/* 비디오 제목 */}
                 {showVideo && (
-                    <div className="video-title">
-                        GS1 Media 동영상 객체 탐지
+                    <div className="video-title" style={{
+                        fontSize: "3rem",      // ✅ 폰트 크기 키움 (예: 2rem = 32px)
+                        fontWeight: "bold",    // ✅ 굵게
+                        padding: "1rem 0",     // ✅ 위아래 여백
+                        textAlign: "center",   // (옵션) 가운데 정렬
+                        letterSpacing: "0.04em", // (옵션) 자간 약간
+                    }}>
+                        KAIST & GS1 Media 동영상 객체 탐지
                     </div>
                 )}
 
-                {/* 비��오 플레이어 영역 */}
+                {/* 비디오 플레이어 영역 */}
                 {showVideo && (
                     <div className={`video-container ${showPopup ? 'shrink' : ''} show`} style={{
                         display: 'flex',                        // ✅ 기존과 동일
@@ -366,9 +372,19 @@ const BarcodeIntro = () => {
                             flex: '1',                              // ✅ 가변 크기
                             // maxWidth: showPopup ? '80%' : '100%',         // ✅ 팝업 있을 때만 줄어듦
                             maxWidth: '80%',         // ✅ 팝업 있을 때만 줄어듦
+                            borderRadius: '18px',   // ✅ 여기!
+                            overflow: 'hidden',     // ✅ 둥근 모서리 바깥으로 넘치는 내용 자름
                         }}>
 
-                            <video id="my-video" ref={videoRef} className="video-js vjs-default-skin video show" playsInline>
+                            <video id="my-video" ref={videoRef} className="video-js vjs-default-skin video show" playsInline
+                                style={{
+                                    borderRadius: "18px",  // ★ 이 줄만 추가!
+                                    overflow: "hidden",    // (옵션) 바깥쪽 잘림 방지
+                                    width: "100%",         // (권장) 부모 div에 맞추기
+                                    height: "100%",
+                                    objectFit: "cover",    // (옵션) 영상 빈틈 없이 채움
+                                }}
+                            >
                                 <source src={`${process.env.PUBLIC_URL}/testVid_1.25.mp4`} type="video/mp4" />
                                 <track kind="metadata" src={`${process.env.PUBLIC_URL}/gs1media_dl_metadata.vtt`} srcLang="en" label="Polygon" default />
                                 <p className="vjs-no-js">
@@ -405,12 +421,14 @@ const BarcodeIntro = () => {
                             {showPopup && (
                                 <div className="popup-panel show" style={{
                                     flex: '0 0 40%',                     // ✅ 오른쪽 고정 폭
-                                    height: '100%',
+                                    height: '86%',
                                     overflowY: 'auto',
                                     backgroundColor: '#f9fafe',
                                     borderLeft: '1px solid #ccc',
                                     padding: '1rem',
                                     boxShadow: '-2px 0 8px rgba(0,0,0,0.08)',
+                                    borderRadius: '18px',
+                                    marginTop: '75px',
                                 }}>
                                     <button className="popup-close" onClick={() => {
                                         setShowPopup(false);
