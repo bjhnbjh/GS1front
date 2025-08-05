@@ -24,12 +24,14 @@ body {
   left: 0;
   width: 100vw;                 /* 뷰포트 전체 너비 */
   height: 100vh;                /* 뷰포트 전체 높이 */
-  background: black;           /* 배경색 검정 (로딩 중 대비) */
+  background: linear-gradient(135deg, #5fbeeb 0%, #3da8d4 100%); /* KAIST 스타일 파란 그라데이션 */
   display: flex;               /* 내부 요소 가운데 정렬 위해 Flex 사용 */
   justify-content: center;     /* 가로 가운데 */
   align-items: center;         /* 세로 가운데 */
   z-index: 10;                 /* 다른 요소 위에 나타나도록 설정 */
   overflow: visible;           /* 내부 오버플로우 허용 (컨트롤바가 튀어나와도 보이게) */
+  padding: 20px;               /* 여백 추가 */
+  box-sizing: border-box;      /* 패딩 포함한 크기 계산 */
 }
 
 .video-container.show {
