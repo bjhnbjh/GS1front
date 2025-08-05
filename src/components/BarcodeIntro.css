@@ -73,7 +73,7 @@ body {
 
 .vjs-control {
   z-index: 1001 !important;
-  overflow: visible !important;    /* 아이콘 잘리지 않게 */
+  overflow: visible !important;    /* 아이콘 잘��지 않게 */
 }
 
 /* ===== [5] START 버튼 (처음 화면 중앙) ===== */
@@ -82,13 +82,26 @@ body {
   top: 50%;                           /* 세로 중앙 */
   left: 50%;                          /* 가로 중앙 */
   transform: translate(-50%, -50%);   /* 정확한 중앙 정렬 */
-  padding: 1rem 2rem;                 /* 여백: 상하 1rem, 좌우 2rem */
-  font-size: 1.5rem;                  /* 큰 글씨 */
-  background: transparent;            /* 투명 배경 */
-  border: 2px solid white;            /* 흰 테두리 */
+  padding: 1.5rem 3rem;               /* 더 큰 여백: 상하 1.5rem, 좌우 3rem */
+  font-size: 2rem;                    /* 더 큰 글씨 */
+  font-weight: 600;                   /* 세미볼드 */
+  background: rgba(255, 255, 255, 0.15); /* 반투명 흰색 배경 */
+  backdrop-filter: blur(10px);        /* 유리 효과 */
+  border: 2px solid rgba(255, 255, 255, 0.3); /* 반투명 흰 테두리 */
+  border-radius: 15px;                /* 둥근 모서리 */
   color: white;                       /* 글자 흰색 */
   cursor: pointer;                    /* 마우스 오버 시 손 모양 */
   z-index: 9999;                      /* 최상위에 표시 */
+  transition: all 0.3s ease;         /* 부드러운 전환 효과 */
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* 글자 그림자 */
+  letter-spacing: 2px;                /* 글자 간격 */
+}
+
+.start-btn:hover {
+  background: rgba(255, 255, 255, 0.25); /* 호버 시 더 밝은 배경 */
+  border-color: rgba(255, 255, 255, 0.5); /* 호버 시 더 밝은 테두리 */
+  transform: translate(-50%, -50%) scale(1.05); /* 호버 시 살짝 확대 */
+  box-shadow: 0 8px 32px rgba(255, 255, 255, 0.2); /* 호버 시 그림자 */
 }
 
 /* 전체화면 재진입 버튼 (우측 하단 작게 표시됨) */
