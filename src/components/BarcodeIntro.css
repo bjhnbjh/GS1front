@@ -89,7 +89,7 @@ body {
   height: 100% !important;
 }
 
-/* ===== [4] video.js 컨트롤바 항상 보이기 ===== */
+/* ===== [4] video.js 컨트롤바 ���상 보이기 ===== */
 .vjs-control-bar {
   z-index: 1001 !important;        /* 다른 요소보다 위 */
   visibility: visible !important;  /* 항상 보이도록 설정 */
@@ -147,7 +147,7 @@ body {
   bottom: 3rem;            /* 아래쪽에서 3rem 떨어짐 */
 
   padding: 0.8rem 1.5rem;  /* 작게 조정된 여백 */
-  font-size: 1rem;         /* 글씨도 작게 */
+  font-size: 1rem;         /* ��씨도 작게 */
 
   transition: right 0.4s ease;  /* 오른쪽 위치 부드럽게 이동 */
 }
@@ -249,6 +249,24 @@ body {
 .right-bar:hover {
   opacity: 1;                     /* 호버 시 완전 불투명 */
   background: rgba(255, 255, 255, 1); /* 호버 시 완전 흰 배경 */
+  transform: translateY(-50%) scale(1.1); /* 호버 시 살짝 확대 */
+  box-shadow: -4px 0 15px rgba(0, 0, 0, 0.3); /* 더 강한 그림자 */
+}
+
+.right-bar::after {
+  content: '▶';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #5fbeeb;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.right-bar:hover::after {
+  color: #3da8d4;
+  transform: translate(-40%, -50%);
 }
 
 /* ===== [9] 오른쪽 팝업 패널 ===== */
